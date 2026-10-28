@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#050d16" />
+  <title>LifeOS — Build · Invest · Grow</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="#command" aria-label="LifeOS Command Center"><span class="brand-mark"><i></i><i></i><i></i><i></i><i></i></span><span>LifeOS<small>Build · Invest · Grow</small></span></a>
+      <nav class="main-nav" aria-label="Main navigation">
+        <div class="nav-group"><a class="nav-item" href="#command" data-page="command"><span class="nav-icon">⌂</span>Command Center</a><a class="nav-item" href="#goals" data-page="goals"><span class="nav-icon">◎</span>Goals</a><a class="nav-item" href="#calendar" data-page="calendar"><span class="nav-icon">▦</span>Calendar</a><a class="nav-item" href="#inbox" data-page="inbox"><span class="nav-icon">▱</span>Inbox <span class="nav-count">3</span></a></div>
+        <p class="nav-label">WEALTH</p>
+        <a class="nav-item" href="#finances" data-page="finances"><span class="nav-icon">♧</span>Net Worth</a><a class="nav-item" href="#finances" data-page="finances"><span class="nav-icon">↔</span>Cash Flow</a><a class="nav-item" href="#investments" data-page="investments"><span class="nav-icon">▣</span>Portfolio</a><a class="nav-item" href="#research" data-page="research"><span class="nav-icon">⌕</span>Investment Research</a>
+        <p class="nav-label">VENTURES</p>
+        <a class="nav-item" href="#businesses" data-page="businesses"><span class="nav-icon">▧</span>Businesses</a><a class="nav-item" href="#businesses" data-page="businesses"><span class="nav-icon">▣</span>Products</a><a class="nav-item" href="#websites" data-page="websites"><span class="nav-icon">◎</span>Websites & Infrastructure</a><a class="nav-item" href="#websites" data-page="websites"><span class="nav-icon">⊕</span>Domains</a>
+        <p class="nav-label">EXECUTION</p>
+        <a class="nav-item" href="#projects" data-page="projects"><span class="nav-icon">▱</span>Projects & Tasks</a><a class="nav-item" href="#development" data-page="development"><span class="nav-icon">⌘</span>Development</a><a class="nav-item" href="#learning" data-page="learning"><span class="nav-icon">⌑</span>Learning & Knowledge</a>
+        <p class="nav-label">ASSETS</p>
+        <a class="nav-item" href="#assets" data-page="assets"><span class="nav-icon">♙</span>Asset Registry</a><a class="nav-item" href="#assets" data-page="assets"><span class="nav-icon">▤</span>Documents</a>
+        <p class="nav-label">PERSONAL</p>
+        <a class="nav-item" href="#personal" data-page="personal"><span class="nav-icon">♡</span>Personal Life</a><a class="nav-item" href="#personal" data-page="personal"><span class="nav-icon">◉</span>Health & Well-being</a><a class="nav-item" href="#personal" data-page="personal"><span class="nav-icon">♡</span>Relationships</a>
+        <p class="nav-label">SYSTEM</p>
+        <a class="nav-item" href="#analytics" data-page="analytics"><span class="nav-icon">▥</span>Analytics</a><a class="nav-item" href="#automations" data-page="automations"><span class="nav-icon">✳</span>Automations & AI</a><a class="nav-item" href="#settings" data-page="settings"><span class="nav-icon">⚙</span>Integrations</a><a class="nav-item" href="#settings" data-page="settings"><span class="nav-icon">⚙</span>Settings & Security</a>
+      </nav>
+      <div class="sidebar-quote"><span>“</span><p>A goal without a plan<br/>is just a wish.</p></div>
+    </aside>
+    <main class="main-area">
+      <header class="topbar">
+        <button class="mobile-menu" id="mobileMenu" aria-label="Open menu">☰</button>
+        <button class="search-trigger" id="searchOpen"><span>⌕</span><span class="search-placeholder">Search goals, projects, investments, documents, tasks, etc...</span><kbd>⌘ K</kbd></button>
+        <div class="top-actions"><button class="quick-top" id="quickAdd"><b>＋</b> Quick Add</button><button class="top-icon" id="notifications" aria-label="Notifications">♧<i>3</i></button><button class="top-icon calendar-shortcut" data-goto="calendar" aria-label="Calendar">▦</button><div class="date-block"><strong id="todayDate"></strong><small id="todayClock"></small></div><div class="top-divider"></div><button class="user-menu"><span class="user-avatar">ST</span><span><b>Samuel Temitope</b><small>Build the future</small></span><i>⌄</i></button></div>
+      </header>
+      <div id="pageContent" class="page-content"></div>
+    </main>
+  </div>
+  <dialog class="modal" id="quickModal"><form method="dialog" class="modal-card"><div class="modal-heading"><div><span class="eyebrow">QUICK CAPTURE</span><h2>Add to your LifeOS</h2></div><button class="close-modal" aria-label="Close">×</button></div><p class="muted">Capture it now. Organize it when you’re ready.</p><input class="text-input" id="quickInput" placeholder="A task, idea, expense, goal…" required/><div class="modal-actions"><select id="quickType" class="select-input"><option>Task</option><option>Goal</option><option>Idea</option><option>Expense</option><option>Investment note</option></select><button class="button primary" id="saveQuick">Add item <span>↗</span></button></div></form></dialog>
+  <dialog class="modal" id="goalModal"><form method="dialog" class="modal-card"><div class="modal-heading"><div><span class="eyebrow">GOAL SETUP</span><h2>Create a goal</h2></div><button class="close-modal" aria-label="Close">×</button></div><p class="muted">Make your next milestone clear and measurable.</p><label class="field-label">Goal name<input class="text-input" id="goalInput" placeholder="e.g. Build N50M investment portfolio" required/></label><div class="form-grid"><label class="field-label">Category<select class="select-input"><option>Financial</option><option>Business</option><option>Career & Skills</option><option>Personal</option></select></label><label class="field-label">Target date<input class="text-input" type="date"/></label></div><div class="modal-actions"><span></span><button class="button primary" id="saveGoal">Create goal <span>↗</span></button></div></form></dialog>
+  <dialog class="modal search-modal" id="searchModal"><form method="dialog" class="modal-card"><div class="search-box"><span>⌕</span><input id="globalSearch" placeholder="Search across your LifeOS…"/><kbd>ESC</kbd></div><div class="search-hint">SEARCH YOUR PERSONAL OS</div><div class="search-results" id="searchResults"></div></form></dialog>
+  <div class="toast" id="toast" role="status"></div>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
